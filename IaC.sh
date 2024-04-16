@@ -33,17 +33,6 @@ do
         echo "Diretório '$makeDirector' criado e adicionado ao grupo root!"
 done
 
-# for makeDirector in "${directors770[@]}"
-# do
-#     Director="$makeDirector"
-#     Grupo="${groups[$makeDirector]}"
-
-#     mkdir "$Director"
-#     chmod 770 "$Director"
-#     chown -R ":$Grupo" /"$Director"
-#     echo "Diretório '$Director' criado e adicionado ao grupo '$Grupo'!"
-# done
-
 for makeDirector in "${directors770[@]}"
 do
     mkdir "$makeDirector"
@@ -52,26 +41,11 @@ do
     echo "Diretório '$makeDirector' criado e adicionado ao grupo 'GRP_$makeDirector'!"
 done
 
-# mkdir adm
-# chown -R :GRP_ADM /adm
-# chmod 770 adm
-# echo "Diretório adm criado e adicionado ao grupo GRP_ADM!"
-
-# mkdir ven
-# chown -R :GRP_VEN /ven
-# chmod 770 ven
-# echo "Diretório ven criado e adicionado ao grupo GRP_VEN!"
-
-# mkdir sec
-# chown -R :GRP_SEC /sec
-# chmod 770 sec
-# echo "Diretório sec criado e adicionado ao grupo GRP_SEC!"
-
 # Criação dos usuarios
 echo " "
 echo "Criando usuários ADM..."
 
-for users in "${usersAdm[@]}" #ADM
+for users in "${usersAdm[@]}"
 do
     group="GRP_${directors770[0]}"
 
@@ -83,7 +57,7 @@ done
 
 echo " "
 echo "Criando usuários VEN..."
-for users in "${usersVen[@]}" #VEN
+for users in "${usersVen[@]}"
 do
     group="GRP_${directors770[1]}"
 
@@ -95,7 +69,7 @@ done
 
 echo " "
 echo "Criando usuários SEC..."
-for users in "${usersSec[@]}" #SEC
+for users in "${usersSec[@]}"
 do
     group="GRP_${directors770[2]}"
 
